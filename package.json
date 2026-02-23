@@ -1,0 +1,17 @@
+{
+    "name": "wp-a11y-screen-reader-text-format",
+    "version": "0.0.1",
+    "description": "Screen reader text format for Accessibility.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "wp-scripts start src/editor.js src/block.js",
+        "build": "wp-scripts build src/editor.js src/block.js"
+    },
+    "author": "LTIC WordPress",
+    "license": "GPL-2.0-only",
+    "devDependencies": {
+        "@wordpress/scripts": "^31.2.0"
+    },
+    "dependencies": {}
+}
