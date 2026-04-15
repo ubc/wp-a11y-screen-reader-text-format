@@ -1,18 +1,65 @@
 .editor-styles-wrapper {
-    .wp-a11y-screen-reader-text {
-        border: 2px dashed black;
-        padding: 1px;
+	:is(.wp-a11y-screen-reader-text, .wp-a11y-visually-hidden) {
+		/* 1px */
+		outline: 0.0625rem solid currentColor;
+		border-radius: 0;
+		background-color: #add8e6;
+		color: #000;
+
+        anchor-scope: --visually-hidden-text-span;
+		anchor-name: --visually-hidden-text-span;
+
+		&[data-rich-text-format-boundary] {
+			background-color: #add8e6 !important;
+			color: #000 !important;
+		}
+
+		&::before,
+        &::after {
+			content: none;
+			position: absolute;
+		}
+	}
+    
+    
+    :is(.wp-a11y-screen-reader-text, .wp-a11y-visually-hidden)::before {
+        content: "" / "Start Visually Hidden Text";
+    }
+
+    :is(.wp-a11y-screen-reader-text, .wp-a11y-visually-hidden)::after {
+        content: "" / "End Visually Hidden Text";
+    }
+   
+    :is(.is-selected, .is-hovered) :is(.wp-a11y-screen-reader-text, .wp-a11y-visually-hidden)::after {
+        content: "\f177" / "End Visually Hidden Text";
+        position-anchor: --visually-hidden-text-span;
+        position-area: top span-left;
+        /* -1px */
+        margin-block-start: -0.0625rem;
+        /* -1px */
+        margin-inline-end: -0.0625rem;
+        /* 1px */
+        padding: 0.0625em;
+        /* 1px */
+        border: 0.0625rem solid currentColor;
+        // border-block-end: none;
+        font-family: dashicons;
+        /* 12px */
+        font-size: 0.75rem;
+        line-height: 1;
+        background-color: #fff;
+        color: #000;
     }
 }
 
-body:not(.editor-styles-wrapper) .wp-a11y-screen-reader-text {
-    word-wrap: normal !important;
-    border: 0;
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+body:not(.wp-admin) :is(.wp-a11y-screen-reader-text, .wp-a11y-visually-hidden) {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	/* 1px */
+	inline-size: 0.0625rem;
+	/* 1px */
+	block-size: 0.0625rem;
+	white-space: nowrap;
 }

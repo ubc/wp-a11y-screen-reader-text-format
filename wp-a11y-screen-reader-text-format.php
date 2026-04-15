@@ -4,7 +4,7 @@
  * Description:       Adds a screen reader text format to the block toolbar controls.
  * Requires at least: 6.5
  * Requires PHP:      8.2
- * Version:           0.0.1
+ * Version:           0.0.2
  * Author:            LTIC WordPress
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
