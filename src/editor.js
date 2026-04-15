@@ -5,7 +5,7 @@ const ScreenReaderTextButton = ( { isActive, onChange, value } ) => {
     return (
         <RichTextToolbarButton
             icon="visibility"
-            title="Screen Reader Text"
+            title="Visually Hidden Text"
             onClick={ () => {
                 onChange(
                     toggleFormat( value, {
@@ -19,8 +19,8 @@ const ScreenReaderTextButton = ( { isActive, onChange, value } ) => {
 };
 
 registerFormatType( 'wp-a11y/screen-reader-text', {
-    title: 'Screen Reader Text',
+    title: 'Visually Hidden Text',
     tagName: 'span',
-    className: 'wp-a11y-screen-reader-text',
+    className: 'wp-a11y-visually-hidden',
     edit: ScreenReaderTextButton,
 } );
